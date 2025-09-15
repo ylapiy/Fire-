@@ -1,3 +1,6 @@
+import heapq
+queue = []
+
 class ListaAdjacencia:
     
       def __init__ (self, vertices):
@@ -33,8 +36,6 @@ class MatrizAdjacencia:
         for i in range(self.vetices):
             print(self.grafo[i])
 
-    def Dijkstra():
-
 class DicionarioAdjacencia:
     
     def __init__ (self):    
@@ -47,3 +48,17 @@ class DicionarioAdjacencia:
     def AdicionarAresta(self,u,v,p):
         if v is not self.grafo[u]: self.grafo[u].append([v,p])
         else : print("Já Adicionado!!!")
+
+    def diskstar(grafo,inicio);
+        distacia = {item:float("inf") for item in grafo}
+        distacia[inicio] = 0
+        queue  = [(0,inicio)]
+        
+        while queue:
+            distancia_Atual,Ponto_Atual = heapq.heappop(queue)
+            for node,peso in grafo[Ponto_Atual]:
+                nova_distancia = distancia_Atual+peso
+                if nova_distancia < distacia[node]:
+                    distacia[node] = nova_distancia
+                    heapq.heappush(queue,(nova_distancia,node))
+        return distacia
